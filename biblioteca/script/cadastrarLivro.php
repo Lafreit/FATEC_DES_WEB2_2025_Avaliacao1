@@ -1,9 +1,10 @@
 <?php
 session_start();
-/*if ($_SESSION['usuario'] != "bibliotecario") {
-    header("Location: ../script/dashboard.php");
-    exit;
-}*/
+
+// Configuração de erros para depuração
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Verificação de sessão
 if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] != "bibliotecario") {
     header("Location: /biblioteca/script/dashboard.php");
@@ -11,20 +12,19 @@ if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] != "bibliotecario") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $titulo = $_POST['titulo'];
-    $autor = $_POST['autor'];
-    $editora = $_POST['editora'];
-    $isbn = $_POST['isbn'];
-
+    $titulo = htmlspecialchars($_POST['titulo']);
+    $autor = htmlspecialchars($_POST['autor']);
+    $editora = htmlspecialchars($_POST['editora']);
+    $isbn = htmlspecialchars($_POST['isbn']);
     $dados = "$titulo | $autor | $editora | $isbn\n";
 
-    $arquivo = fopen("livros.txt", "a");
-    if ($arquivo) {
-        fwrite($arquivo, $dados);
-        fclose($arquivo);
-        echo "Livro cadastrado com sucesso!";
+    // Caminho do arquivo
+    $caminhoArquivo = __DIR__ . "/livros.txt";
+
+    if (file_put_contents($caminhoArquivo, $dados, FILE_APPEND | LOCK_EX)) {
+        echo "<p style='color: green;'>Livro cadastrado com sucesso!</p>";
     } else {
-        echo "Erro ao salvar o livro.";
+        echo "<p style='color: red;'>Erro ao salvar o livro.</p>";
     }
 }
 ?>
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h1>Cadastrar Livro</h1>
-    <form method="POST" action="">
+    <form method="POST">
         <label for="titulo">Título:</label>
         <input type="text" id="titulo" name="titulo" required><br><br>
 
