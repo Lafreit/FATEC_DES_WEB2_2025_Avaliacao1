@@ -1,7 +1,12 @@
 <?php
 session_start();
-if ($_SESSION['usuario'] != "bibliotecario") {
-    header("Location: dashboard.php");
+/*if ($_SESSION['usuario'] != "bibliotecario") {
+    header("Location: ../script/dashboard.php");
+    exit;
+}*/
+// Verificação de sessão
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] != "bibliotecario") {
+    header("Location: /biblioteca/script/dashboard.php");
     exit;
 }
 
@@ -47,6 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <button type="submit">Cadastrar</button>
     </form>
-    <a href="biblioteca/script/dashboard.php">Voltar ao Painel</a>
+    <a href="/biblioteca/script/dashboard.php">Voltar ao Painel</a>
 </body>
 </html>
