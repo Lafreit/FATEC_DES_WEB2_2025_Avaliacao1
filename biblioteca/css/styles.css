@@ -1,39 +1,75 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    align-self: auto;
+    display: inline-table;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(68.15deg, #400ceb4b 16.62%, #645c2b5d 85.61%);/*Gostei*/
+}
+
+/*body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 50px;
     padding: 0;
     background-color: #f4f4f4;
-}
+}*/
 
 h1 {
     color: #333;
     text-align: center;
 }
+p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+h2 {
+    color: #333;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
 form {
-    background: #fff;
-    padding: 20px;
+    background: #eb4141;
+    padding: 1px 20px 1px 20px;
+    display: inline-flex;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    max-width: fit-content;
     margin: auto;
 }
 
 label {
+    width: 170px;
+    color: #333;
+    font-size: 16px;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 28px;
     font-weight: bold;
-    width: 80%;
-    padding: 0 10px;
+    padding: 10px;
 
     
 }
 
-input, button {
-    width: 100%;
-    padding: 10px 20px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
+input /*button*/ {
+    width: 250px;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid #dddddd;
     border-radius: 4px;
 }
 
@@ -42,10 +78,14 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100px;
+    margin: 15px;
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: rgb(196, 129, 42);
 }
 
 a {
@@ -59,3 +99,40 @@ a {
 a:hover {
     text-decoration: underline;
 }
+tr {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;  
+    margin:auto;
+    text-align: center;
+    font-size: 16px;
+}
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+table.table-bordered.table-striped.table-hover {
+    border: 1px solid #a85f5f;
+    width: 100%;
+    display: flexbox;
+    border-collapse: collapse;
+    margin: auto;
+}
+/*table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    width: 100%; 
+    text-align: left; 
+    background-color: rgb(207, 201, 172);
+    height: 5%;
+}*/
+
+      
